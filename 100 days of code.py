@@ -165,5 +165,95 @@ if choise=="left":
 else:
   print("Game over...you fall into the hole")  
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------
+#DAY 4
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Genarating random Heads or tails
+
+import random
+a=random.randint(0,2)
+if a==0:
+  print("Tails")
+else:
+  print("Heads")  
+
+#----------------------------------------------------------------------------------------------------------------------------------------------------------------
+#random name to pay the pay the bill
+
+import random
+# Split string method
+names_string = input("Give me everybody's names, separated by a comma. ")
+names = names_string.split(", ")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+b=len(names)
+number=random.randint(0,b)
+print(f"Finally the {names[number]} need to pay the bill")
+#--------------------------------------------------------------------------------------------------
+#pirate using nested list
+
+row1 = ["⬜️","️⬜️","️⬜️"]
+row2 = ["⬜️","⬜️","️⬜️"]
+row3 = ["⬜️️","⬜️️","⬜️️"]
+map = [row1, row2, row3]
+print(f"{row1}\n{row2}\n{row3}")
+
+position = input("Where do you want to put the treasure? ")
+
+horizontal = int(position[0])
+vertical = int(position[1])
+
+map[vertical - 1][horizontal - 1] = "X"
+
+print(f"{row1}\n{row2}\n{row3}")
+
+#--------------------------------------------------------------------------------------------------
+
+#rock paper and scissor
+
+
+import random
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+a=int(random.randint(0,3))
+user=int(input("Enter your choice:0 for stone,1 for paper,2 for sciccors"))
+if(a==user):
+  print("Draw")
+elif a==0 and user>0:
+  print("computer wins")
+elif a==1 and user==0 :
+  print("computer wins")
+elif a==2 and user==1:
+  print("Computer wins")
+elif user>2 or user<0:
+  print("Invalid input")
+else:
+  print("you win")        
+#------------------------------------------------------------------
 
 
