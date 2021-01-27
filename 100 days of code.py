@@ -165,7 +165,6 @@ if choise=="left":
 else:
   print("Game over...you fall into the hole")  
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------
-#---------------------------------------------------------------------------------------------------------------------------------------------------------------
 #DAY 4
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Genarating random Heads or tails
@@ -255,5 +254,314 @@ elif user>2 or user<0:
 else:
   print("you win")        
 #------------------------------------------------------------------
+#DAY 5
+#-----------------------------------------------------------------
+#Find average height of students without using inbuild functions
+
+# 🚨 Don't change the code below 👇
+student_heights = input("Input a list of student heights ").split()
+for n in range(0, len(student_heights)):
+  student_heights[n] = int(student_heights[n])
+# print(student_heights)
+# 🚨 Don't change the code above 👆
+
+#Write your code below this row 👇
+
+total_height = 0
+for height in student_heights:
+  total_height += height
+print(f"total height = {total_height}")
+
+number_of_students = 0
+for student in student_heights:
+  number_of_students += 1
+print(f"number of students = {number_of_students}")
+  
+average_height = round(total_height / number_of_students)
+print(average_height)
+
+#--------------------------------------------------------------------------
+#Max mark of student
+
+student_scores = input("Input a list of student scores ").split()
+for n in range(0, len(student_scores)):
+  student_scores[n] = int(student_scores[n])
+print(student_scores)
+# 🚨 Don't change the code above 👆
+
+#Write your code below this row 👇
+highest_score=0
+for score in student_scores:
+ if score>highest_score:
+  max=score
+print(max)    
+#------------------------------------------------------------------------
+#print sum of even numbers
+
+#Write your code below this row 👇
+sum1=0
+for i in range(2,101,2):
+ sum1 += i
+print(sum1) 
+#-------------------------------------------------------------------------
+
+#Fizz_Buzz
+
+
+#Write your code below this row 👇
+for i in range(0,100,1):
+ if i%3==0 and i%5==0:
+   print("Fizz_Buzz")
+ elif i%3==0:
+   print("Fizz")
+ elif i%5==0:
+   print("Buzz")
+ else:
+   print(i)     
+#----------------------------------------------------------------------
+
+#Password Generator Project
+import random
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+print("Welcome to the PyPassword Generator!")
+nr_letters= int(input("How many letters would you like in your password?\n")) 
+nr_symbols = int(input(f"How many symbols would you like?\n"))
+nr_numbers = int(input(f"How many numbers would you like?\n"))
+b=""
+a=''
+c=''
+#Eazy Level - Order not randomised:
+#e.g. 4 letter, 2 symbol, 2 number = JduE&!91
+password=''
+for i in range(1,nr_letters+1):
+  random_char=random.choice(letters)
+  a+= random_char
+
+for i in range(1,nr_symbols+1):
+  random_sym=random.choice(symbols)
+  b+= random_sym
+
+for i in range(1,nr_numbers+1):
+  random_num=random.choice(numbers)
+  c+= random_num
+print(a+b+c)
+
+#-------------------------------------------------------------------------------------------
+#day 6 
+#functions
+#finding path in maze
+#----------------------------------------------------------------------------------------------
+#Day 7
+#Step 5
+
+import random
+
+#TODO-1: - Update the word list to use the 'word_list' from hangman_words.py
+word_list = ["ardvark", "baboon", "camel"]
+
+
+chosen_word = random.choice(word_list)
+word_length = len(chosen_word)
+
+end_of_game = False
+lives = 6
+
+#TODO-3: - Import the logo from hangman_art.py and print it at the start of the game.
+from hangman_art import logo
+print(logo)
+
+#Testing code
+print(f'Pssst, the solution is {chosen_word}.')
+
+#Create blanks
+display = []
+for _ in range(word_length):
+    display += "_"
+
+while not end_of_game:
+    guess = input("Guess a letter: ").lower()
+
+    #TODO-4: - If the user has entered a letter they've already guessed, print the letter and let them know.
+    if guess in display:
+        print(f"You've already guessed {guess}")
+
+    #Check guessed letter
+    for position in range(word_length):
+        letter = chosen_word[position]
+        #print(f"Current position: {position}\n Current letter: {letter}\n Guessed letter: {guess}")
+        if letter == guess:
+            display[position] = letter
+
+    #Check if user is wrong.
+    if guess not in chosen_word:
+        #TODO-5: - If the letter is not in the chosen_word, print out the letter and let them know it's not in the word.
+        print(f"You guessed {guess}, that's not in the word. You lose a life.")
+        
+        lives -= 1
+        if lives == 0:
+            end_of_game = True
+            print("You lose.")
+
+    #Join all the elements in the list and turn it into a String.
+    print(f"{' '.join(display)}")
+
+    #Check if user has got all letters.
+    if "_" not in display:
+        end_of_game = True
+        print("You win.")
+
+    #TODO-2: - Import the stages from hangman_art.py and make this error go away.
+    from hangman_art import stages
+    print(stages[lives])
+#-------------------------------------------------------------------------------------------------------------------------------------
+#DAY 8
+#----------------------------------------------------------------------------------------------------------------------------------------
+
+#Write your code below this line 👇
+
+def prime_checker(number):
+    is_prime = True
+    for i in range(2, number):
+        if number % i == 0:
+            is_prime = False
+    if is_prime:
+        print("It's a prime number.")
+    else:
+        print("It's not a prime number.")
+
+#Write your code above this line 👆
+    
+#Do NOT change any of the code below👇
+n = int(input("Check this number: "))
+prime_checker(number=n)
+
+#-----------------------------------------------------------------------------------------------------------------
+#Day 9
+#------------------------------------------------------------------------------------------------------------------
+
+#find the tudent grade from the dictionary of the studenrt marks
+
+student_scores = {
+  "Harry": 81,
+  "Ron": 78,
+  "Hermione": 99, 
+  "Draco": 74,
+  "Neville": 62,
+}
+student_grade=student_scores.copy()
+for i in student_grade:
+ 
+  if student_grade[i]>91:
+    student_grade[i]="Out sanding"
+  elif student_grade[i]>=81 and student_grade[i]<=90:
+    student_grade[i]="Exeeds expectations"
+  elif student_grade[i]>=71 and student_grade[i]<=80:
+    student_grade[i]="Exeeds expectations"  
+  elif student_grade[i]<=70:
+    student_grade[i]="Fail"  
+print (student_grade)
+
+#--------------------------------------------------------------------------------------------
+#Calculator program
+
+from replit import clear
+from art import logo
+
+def add(n1, n2):
+  return n1 + n2
+
+def subtract(n1, n2):
+  return n1 - n2
+
+def multiply(n1, n2):
+  return n1 * n2
+
+def divide(n1, n2):
+  return n1 / n2
+
+operations = {
+  "+": add,
+  "-": subtract,
+  "*": multiply,
+  "/": divide
+}
+
+def calculator():
+  print(logo)
+
+  num1 = float(input("What's the first number?: "))
+  for symbol in operations:
+    print(symbol)
+  should_continue = True
+ 
+  while should_continue:
+    operation_symbol = input("Pick an operation: ")
+    num2 = float(input("What's the next number?: "))
+    calculation_function = operations[operation_symbol]
+    answer = calculation_function(num1, num2)
+    print(f"{num1} {operation_symbol} {num2} = {answer}")
+
+    if input(f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation: ") == 'y':
+      num1 = answer
+    else:
+      should_continue = False
+      clear()
+      calculator()
+
+calculator()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
